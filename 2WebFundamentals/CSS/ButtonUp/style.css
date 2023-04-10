@@ -1,0 +1,39 @@
+body {
+    padding: 2.5em;
+}
+button { 
+    display:block;
+    margin: 1em;
+    font-size: 1.1em;
+}
+
+#search {
+    border: 2px solid #33b0b3;
+    color: #33b0b3;
+    background-color: #f3f3f3;
+    height: 2em;
+    width: 10em;
+    border-radius: 15px;
+    font-size: medium;
+    font-weight: bold;
+}
+#add {
+    height: 2.2em;
+    width: 2.2em;
+    font-size: 1.15em;
+    font-weight: bold;
+    border: 2px solid #60e0b1;
+    color: white;
+    background-color: #60e0b1;
+    border-radius: 50%;    
+}
+#create-account {
+    width: 12em;
+    height: 2.2em;
+    border: 3px solid black;
+    background-color: royalblue;
+    color: whitesmoke;
+    box-shadow: 3px 3px black;
+}
+
+
