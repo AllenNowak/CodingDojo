@@ -1,0 +1,24 @@
+body {
+    display: flex;
+    flex-direction: column;
+    row-gap: 15px;
+    margin: 0px;
+}
+.row {
+    display: flex;
+    gap: 20px;
+}
+.col {
+    flex: 1;
+}
+.col-2 {
+    flex: 2;
+}
+.col-3 {
+    flex: 3;
+}
+.col, .col-2, .col-3 {
+    background-color: #64A3AB;
+    color:whitesmoke;
+    padding: 10px;
+}
