@@ -1,0 +1,43 @@
+body {
+    font-family: 'Balsamiq Sans', cursive;
+    display: flex;
+    flex-direction: column-reverse;
+}
+.top {
+    height: 100px;
+    background-color: #17a2b8;
+}
+.bottom {
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    overflow: auto;
+    gap: 10px;
+    padding: 20px;
+    border: 3px solid grey;
+    border-top: 0px;
+}
+.avatar {
+    position: fixed;
+    top: 50px;
+    height: 100px;
+    width: 100px;
+}
+.name {
+    font-size: 3em;
+}
+.location {
+    display: flex;
+    font-size: 1.2em;
+    gap: 1.2rem;
+}
+img.thumb {
+    height: 1rem;
+}
+.edit {
+    font-size: 0.9rem;
+}
+a img {
+    margin-right: 1rem;
+}
