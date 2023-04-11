@@ -1,0 +1,41 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+.container {
+    display: flex;
+    flex-direction: column;
+}
+h1 {
+    text-align: center;
+    font-size: 2.2em;
+}
+.lightblue .white {
+    justify-content: space-between;
+}
+.lightblue {
+    display: flex;
+    background-color: lightblue;
+    justify-content: space-between;
+    padding: 15px;
+}
+.pink {
+    display: flex;
+    justify-content: space-around;
+    background-color: lightpink;
+    padding: 15px;
+}
+.white {
+    display: flex;
+    justify-content: space-between;
+    background-color: white;
+    padding: 15px;
+}
+
+img.octocat {
+    height: 200px;
+}
+footer p {
+    text-align: center;
+    background-color: #c0c0c0;
+}
+
