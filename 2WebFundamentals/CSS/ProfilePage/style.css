@@ -153,7 +153,7 @@ li {
     font-size: 1.5rem;
     gap: 1rem;
 }
-.request-options {
+.connection-requester {
     display: flex;
 }
 .left-just {
