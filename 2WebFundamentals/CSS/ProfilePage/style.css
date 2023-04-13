@@ -3,9 +3,10 @@
     padding: 0px;
 }
 body { 
-    border:0px solid brown; 
+    border:1px solid brown; 
     font-family: 'Balsamiq Sans', cursive;
     display: flex;
+    flex: 1 0 800px;
     flex-direction: column;
     align-content: center;
 }
@@ -24,24 +25,29 @@ body {
     gap: 1.5rem;
     padding: 2rem;
     margin: 0 auto;
+    overflow: auto;
+    min-height: min-content;
+    /* border: 2px dashed aquamarine; */
 }
 .left { 
     display:flex;
     flex-direction: column;
-    flex: 2 1 50rem;
-    /* border: 4px dashed goldenrod;  */
+    flex: 2 1 content;
     gap: 1.5rem;
+    /* border: 1px dashed blue; */
 }
 .right { 
     display:flex;
     flex-direction: column;
-    flex: 1 0 20rem;
+    justify-content: flex-start;
+    flex: 1 1 content;
     gap: 1.5rem;
+    /* border: 1px dashed blue; */
 }
 .user-contact { 
     height: 50px;
     width: 150px;
-    border:0px solid brown; 
+    border:4px solid brown; 
 }
 .widget { 
     display:flex;
@@ -59,6 +65,7 @@ body {
     flex-direction: row;
     align-items:center;
     text-align: center;
+    z-index: 12;
 }
 .widget-body { 
     display: flex;
@@ -66,8 +73,12 @@ body {
     padding: 0.7rem 1rem;
     border: 0.4rem solid lightgray;
     border-top: 0px;
+    gap: 0.7rem;
+    z-index: 1;
   }
+#contact-banner {
 
+}
   
 #education>.widget-banner { 
     padding: 1rem 1.5rem;
@@ -119,7 +130,7 @@ li {
     align-items:center;
     font-size: 1.5rem;
     gap: 1rem;
-    border: 2px dashed brown;
+    /* border: 2px dashed brown; */
 }
 .request-options {
     display: flex;
@@ -131,14 +142,12 @@ li {
     justify-content: flex-start;
     align-items: center;
     gap: 1rem;
-    border: 2px solid pink;
 }
 .right-just {
     display: flex;
     flex: 0 0 auto;
     justify-content: flex-end;
     gap: 0.5rem;
-    border: 2px solid pink;
 }
 .badge {
     flex: 0;
@@ -153,16 +162,63 @@ li {
 }
 #contact-banner {
     background-color: #17a2b8;
-    height: 2.2rem;
-}
-#contact-info {
-    
+    height: 3rem;
+    align-content: flex-start;
+    flex-grow: 0;
 }
 
-.widget-body>p {
-    font-size: 1.5rem;
+.widget-body p {
+    font-size: 1.4rem;
+    /* gap: 3rem; */
+    /* color: aquamarine; */
 }
 /* this isn't working right yet */
 img.thumb {
-    height: 0.5rem;
+    height: 1.25rem;
+    margin-right: 0.9rem;
 }
+#contact-info {
+    display: flex;
+    align-items: flex-start;
+    flex: 1, 0 7rem;
+    /* gap: 3rem; */
+}
+.avatar {
+    margin: 4rem 0rem 0rem 0.5rem;
+    height: 4.5rem;
+}
+#contact-info .location {
+    font-size: 1.3rem;
+    /* color: red; */
+}
+#contact-info p {
+    font-size: 1.1rem;
+}
+#contact-info>div {
+    gap: 2rem;
+}
+#contact-info p.name {
+    padding-top: 1.75rem;
+    font-size: 2.1rem;
+}
+#contact-card .widget-body {
+    flex: 1 1 max-content;
+    height: 12rem;
+    justify-content: flex-end;
+}
+.edit {
+    font-size: 1.1rem;
+    display:flex;
+    /* text-align: left; */
+}
+
+/* 
+.left .widget-banner {
+    padding-left: 1rem;
+}
+.left p,.edit,h2 {
+    padding-left: 1rem;
+}
+#education .widget-banner {
+}
+ */

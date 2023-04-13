@@ -14,15 +14,21 @@
     </header>
     <main class="main">
         <div class="left">
-            <div class="widget">
-                <div class="widget-banner" id="contact-banner"></div>
+            <div class="widget" id="contact-card">
+                <div class="widget-banner" id="contact-banner">
+                    <img class="avatar" alt="generic user img" src="icons/user-circle.png">
+                </div>
                 <!-- and apparently this should just be regular old display:block -->
                 <div class="widget-body" id="contact-info">
                     <p class="name">Jane Doe</p>
                     <p class="location"><img class="thumb" src="icons/map-marker.png" alt="map pin">Seattle</p>
-                    <p class="titles">Developer | Engineer | Problem Solver</p>
-                    <p class="Description">Master of shadows and the Internet!</p>
-                    <p class="edit"><img class="thumb" src="icons/gear.png" alt="gear">edit profile</p>
+                    <div>
+                        <p class="titles">Developer | Engineer | Problem Solver</p>
+                        <p class="Description">Master of shadows and the Internet!</p>
+                    </div>
+                    <div class="edit">
+                        <a href="#"><img class="thumb" src="icons/gear.png" alt="gear">edit profile</a>
+                    </div>
                 </div>
             </div>
             <div class="widget" id="education">
