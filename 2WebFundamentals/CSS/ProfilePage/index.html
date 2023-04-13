@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <title>Profile</title>
+</head>
+<body>
+    <header>
+        <div class="nav"><p>Profile</p></div>
+    </header>
+    <main class="main">
+        <div class="left">
+            <div class="widget">
+                <div class="widget-banner" id="contact-banner"></div>
+                <!-- and apparently this should just be regular old display:block -->
+                <div class="widget-body" id="contact-info">
+                    <p class="name">Jane Doe</p>
+                    <p class="location"><img class="thumb" src="icons/map-marker.png" alt="map pin">Seattle</p>
+                    <p class="titles">Developer | Engineer | Problem Solver</p>
+                    <p class="Description">Master of shadows and the Internet!</p>
+                    <p class="edit"><img class="thumb" src="icons/gear.png" alt="gear">edit profile</p>
+                </div>
+            </div>
+            <div class="widget" id="education">
+                <div class="widget-banner">Education</div>
+                <div class="widget-body">
+                    <!-- this extra 1-element div for experience represents how there could be multiple schools listed -->
+                    <!-- and apparently this should just be regular old display:block -->
+                    <div class="experience">
+                        <h2>Coding Dojo - Full Stack Bootcamp</h2>
+                        <p class="experience-dates">Dec 2019 - Mar 2020</p>
+                        <p class="experience-detail">Triple black belt in Python, MERN, and C#...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="right">
+            <div class="widget">
+                <div class="widget-banner">
+                    <span class="badge">2</span>
+                    <div class="banner-title">Connection Requests</div>
+                </div>
+                <div class="widget-body" id="connection-requests">
+                    <ul class="ul-of-people">
+                        <li>
+                            <div class="left-just">
+                                <img class="icon" alt="thumbnail of a person" src="icons/user-circle.png" >
+                                <div class="request-options">Todd E</div>
+                            </div>
+                            <div class="right-just">
+                                <img class="icon" alt="accept" src="icons/accept-circle.png">
+                                <img class="icon" alt="reject" src="icons/close-circle.png">
+                            </div>
+                        </li>
+                        <li>
+                            <div class="left-just">
+                                <img class="icon" alt="thumbnail of a person" src="icons/user-circle.png" >
+                                <div class="request-options">Phil K</div>
+                            </div>
+                            <div class="right-just">
+                                <img class="icon" alt="accept" src="icons/accept-circle.png">
+                                <img class="icon" alt="reject" src="icons/close-circle.png">
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="widget">
+                <div class="widget-banner" id="connections-banner">
+                    <span class="badge">500+</span>
+                    <div class="banner-title">Your Connections</div>
+                </div>
+                <div class="widget-body" id="connections">
+                    <ul class="ul-of-people">
+                        <li><img class="icon" alt="thumbnail of a person" src="icons/user-circle.png" >Adrien D</li>
+                        <li><img class="icon" alt="thumbnail of a person" src="icons/user-circle.png" >Anne J</li>
+                        <li><img class="icon" alt="thumbnail of a person" src="icons/user-circle.png" >Alayne T</li>
+                        <li><img class="icon" alt="thumbnail of a person" src="icons/user-circle.png" >Arry Y</li>
+                    </ul>
+                </div>
+                <div class="widget-body" id="connections-footer"><a href="#">View More</a></div>
+            </div>
+        </div>
+    </main>
+
+</body>
+</html>
