@@ -2,12 +2,13 @@
 /* eventually test the appropriate way to store dojo.css & style.css in a styles/ folder */
 /* is the import relative to style.css ? or relative to the project root? */
 body {
-  padding: 0 10%; /* Aim to remove the padding assignment via flex */
+  padding: 0 1.9rem; /* Aim to remove the padding assignment via flex */
   flex-direction: column;
-  height: 100vh;
+  /* height: 90vh; */
 }
 .wrapper {
   flex: 1;
+  flex-wrap: wrap;
   gap: 1.5rem;
   /* justify-content: space-between; */
   padding: 1.5rem 0;
@@ -24,9 +25,8 @@ body {
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  border: 3px solid black;
   padding: 15px;
-  color: black;
+  /* color: black; */
 }
 .right p {
   font-size: x-large;
@@ -36,10 +36,6 @@ body {
 }
 
 .left > div {
-}
-
-.definition {
-  height: 30vh;
 }
 
 header {
@@ -83,7 +79,7 @@ header > button {
   border: 3px solid black;
   background-color: #2260dd;
   color: whitesmoke;
-  box-shadow: 5px 5px black;
+  box-shadow: 3px 5px black;
   align-items: center;
   justify-content: center;
   padding: 0.2rem 0.5rem;
@@ -97,4 +93,46 @@ header > button {
 
 .btn-simple,
 #search {
+}
+
+.dict-entry {
+  /* height: 40vh; */
+  gap: 2rem;
+  padding: 1rem;
+}
+
+.dict-entry-word {
+  display: flex;
+  /* flex: 1; */
+  flex-wrap: no-wrap;
+  flex-direction: column;
+  gap: 0.3rem;
+  text-align: center;
+  /* padding: 15px; */
+  /* align-content: center; */
+}
+
+.dict-entry-word > * {
+  white-space: nowrap;
+}
+.dict-entry-word > p:first-child {
+  font-size: xx-large;
+}
+
+.dict-entry-word .btn-simple {
+  background-color: #ffd966;
+  color: black;
+  font-size: 1.1rem;
+  margin: 0.75rem 0;
+}
+
+.dict-entry-defn {
+  outline: 1px dotted green;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  padding: 1rem;
+  white-space: nowrap;
+  flex-wrap: wrap;
+  gap: 0 0.4ch;
 }
