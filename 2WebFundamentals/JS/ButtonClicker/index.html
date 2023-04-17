@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="style.css" />
     <title>Dojonary</title>
   </head>
-  <body class="main flex">
+  <body class="main flex balsamiq">
     <header class="gray-bg flex-evenly">
       <span>Dojonary</span>
       <div>
@@ -16,12 +16,32 @@
       </div>
     </header>
     <div class="wrapper flex-rows-evenly">
-      <div class="left flex-columns-evenly yellow60-bg">
-        <div class="definition green60-bg"><span>ninja 1</span></div>
-        <div class="definition green60-bg"><span>ninja 2</span></div>
+      <div class="left flex-columns-evenly">
+        <div class="dict-entry flex-rows-evenly border-blk">
+          <div class="dict-entry-word">
+            <p>ninja</p>
+            <p class="italics">noun</p>
+            <p>Plural: <span class="bold italics">ninjas</span></p>
+            <button class="btn-simple">13 likes</button>
+          </div>
+          <p class="dict-entry-defn">
+            A practitioner skilled in the <a href="#">Japanese</a> art of <a href="#">ninjutsu</a>
+          </p>
+        </div>
+        <div class="dict-entry flex-rows-evenly border-blk">
+          <div class="dict-entry-word">
+            <p>ninja</p>
+            <p class="italics">noun</p>
+            <p>Plural: <span class="bold italics">ninjas</span></p>
+            <button class="btn-simple">13 likes</button>
+          </div>
+          <p class="dict-entry-defn">
+            A <a href="#">programmer</a> who breaks down problems with <span><a href="#">zen</a>-like</span> focus
+          </p>
+        </div>
       </div>
       <div class="right">
-        <div>
+        <div class="border-blk">
           <p>Dojonary is defined by <span>YOU</span></p>
           <button class="btn-simple">Add Definition</button>
         </div>
