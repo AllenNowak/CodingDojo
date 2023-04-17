@@ -127,7 +127,6 @@ header > button {
 }
 
 .dict-entry-defn {
-  outline: 1px dotted green;
   display: flex;
   align-items: center;
   align-content: center;
