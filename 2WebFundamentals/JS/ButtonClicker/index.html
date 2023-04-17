@@ -12,7 +12,7 @@
       <span>Dojonary</span>
       <div>
         <input type="text" name="search" id="search" />
-        <button class="btn-simple" id="login">Login</button>
+        <button class="btn-simple" id="login" onclick="toggleLogin(this)">Login</button>
       </div>
     </header>
     <div class="wrapper flex-rows-evenly">
@@ -22,7 +22,7 @@
             <p>ninja</p>
             <p class="italics">noun</p>
             <p>Plural: <span class="bold italics">ninjas</span></p>
-            <button class="btn-simple">13 likes</button>
+            <button class="btn-simple" onclick="like(this)">13 likes</button>
           </div>
           <p class="dict-entry-defn">
             A practitioner skilled in the <a href="#">Japanese</a> art of <a href="#">ninjutsu</a>
@@ -33,7 +33,7 @@
             <p>ninja</p>
             <p class="italics">noun</p>
             <p>Plural: <span class="bold italics">ninjas</span></p>
-            <button class="btn-simple">13 likes</button>
+            <button class="btn-simple" onclick="like(this)">13 likes</button>
           </div>
           <p class="dict-entry-defn">
             A <a href="#">programmer</a> who breaks down problems with <span><a href="#">zen</a>-like</span> focus
@@ -43,9 +43,10 @@
       <div class="right">
         <div class="border-blk">
           <p>Dojonary is defined by <span>YOU</span></p>
-          <button class="btn-simple">Add Definition</button>
+          <button class="btn-simple" onclick="hide(this)">Add Definition</button>
         </div>
       </div>
     </div>
+    <script src="ButtonClicker.js"></script>
   </body>
 </html>
