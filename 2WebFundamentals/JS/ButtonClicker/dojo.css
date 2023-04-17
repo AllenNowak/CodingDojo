@@ -1,4 +1,6 @@
 /* CSS reset */
+@import url("https://fonts.googleapis.com/css2?family=Balsamiq+Sans&display=swap");
+
 * {
   margin: 0;
   padding: 0;
@@ -63,8 +65,10 @@ nav > button {
 /* simple button style */
 .btn-simple {
   display: flex;
+  white-space: nowrap;
+  margin: 0.5rem 0;
+  /* font-size: 1.1rem;; */
   /* margin: 0.5m; */
-  /* font-size: 1.1rem; */
   /* padding: 0.5rem; */
 }
 /* rounded button */
@@ -145,6 +149,12 @@ li.v-centered {
 }
 .roboto {
   font-family: "Roboto", sans-serif;
+}
+.italics {
+  font-style: italic;
+}
+.bold {
+  font-weight: bold;
 }
 
 /*
@@ -254,4 +264,13 @@ li.v-centered {
   background-color: rgba(128, 0, 128, 0.6);
   border: 2px solid rgba(128, 0, 128, 0.8);
   border: 2px solid purple;
+}
+
+/*
+ *
+ * Borders
+ *
+ */
+.border-blk {
+  border: 3px solid black;
 }
