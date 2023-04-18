@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="generic.css" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Weather Forecast</title>
+  </head>
+  <body class="flex-columns">
+    <div class="banner flex ltblue-bg white">
+      <p class="txt-xxl grow-1x">DojoWeather</p>
+      <p>Burbank</p>
+      <p>Chicago</p>
+      <p>Dallas</p>
+    </div>
+    <main>
+      <header class="flex bborder bpad-1">
+        <h2 class="grow-1x">San Jose</h2>
+        <div class="degree-units flex txt-smr">
+          <label for="units">show temperature in</label>
+          <select name="units" id="units">
+            <option value="C">&deg; C</option>
+            <option value="F">&deg; F</option>
+          </select>
+        </div>
+      </header>
+      <div id="forecasts" class="flex tbpad-1">
+        <div class="forecast flex-columns ltgray-bg" id="today-plus-0">
+          <p class="dayLabel">Today</p>
+          <img src="./assets/some_rain.png" alt="rainy" />
+          <span class="weather-summary">some rain</span>
+          <div class="temperatures flex">
+            <div class="high red">75&deg;</div>
+            <div class="low blue">65&deg;</div>
+          </div>
+        </div>
+        <div class="forecast flex-columns ltgray-bg" id="today-plus-1">
+          <p class="dayLabel">Tomorrow</p>
+          <img src="./assets/some_sun.png" alt="sunny" />
+          <span class="weather-summary">some rain</span>
+          <div class="temperatures flex">
+            <div class="high red">80&deg;</div>
+            <div class="low blue">66&deg;</div>
+          </div>
+        </div>
+        <div class="forecast flex-columns ltgray-bg" id="today-plus-2">
+          <p class="dayLabel">Friday</p>
+          <img src="./assets/some_clouds.png" alt="cloudy" />
+          <span class="weather-summary">some rain</span>
+          <div class="temperatures flex">
+            <div class="high red">69&deg;</div>
+            <div class="low blue">61&deg;</div>
+          </div>
+        </div>
+        <div class="forecast flex-columns ltgray-bg" id="today-plus-3">
+          <p class="dayLabel">Saturday</p>
+          <img src="./assets/some_sun.png" alt="sunny" />
+          <span class="weather-summary">some rain</span>
+          <div class="temperatures flex">
+            <span class="high red">78&deg;</span>
+            <span class="low blue">70&deg;</span>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

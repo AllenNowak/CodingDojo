@@ -1,0 +1,52 @@
+@import "generic.css";
+
+* {
+  /* outline: 1px dotted blue; */
+}
+.banner {
+  padding: 0.5rem 10%;
+  gap: 2rem;
+  align-items: center;
+  line-height: 3rem;
+}
+main {
+  padding: 0 10%;
+}
+.degree-units {
+  display: flex;
+  gap: 0.3rem;
+}
+
+header label {
+  /* background-color: cyan; */
+  /* align-content: center; */
+  /* align-items: center; */
+  line-height: 2rem;
+  align-content: center;
+  text-align: center;
+}
+#forecasts {
+  gap: 1rem;
+  justify-content: space-between;
+}
+
+.forecast {
+  gap: 1rem;
+  padding: 1.3rem;
+  flex: 1;
+  align-content: center;
+  align-items: center;
+}
+
+.forecast > img {
+  display: block;
+  height: 5rem;
+  border-radius: 50%;
+}
+.temperatures {
+  align-self: normal;
+  justify-content: space-between;
+}
+.weather-summary {
+  font-size: x-small;
+}
