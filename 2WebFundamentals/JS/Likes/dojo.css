@@ -55,6 +55,42 @@ nav > button {
 
 /*
  *
+ * Icons and images
+ *
+ */
+img {
+  height: 100px;
+}
+.img-90 {
+  height: 90px;
+}
+.img-80 {
+  height: 80px;
+}
+.img-70 {
+  height: 70px;
+}
+.img-60 {
+  height: 60px;
+}
+.img-50 {
+  height: 50px;
+}
+.img-40 {
+  height: 40px;
+}
+.img-30 {
+  height: 30px;
+}
+.img-20 {
+  height: 20px;
+}
+.img-10 {
+  height: 10px;
+}
+
+/*
+ *
  * Buttons
  *
  */
@@ -97,11 +133,22 @@ nav > button {
 .flex {
   display: flex;
 }
+.flex-columns {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
 .flex-columns-evenly {
   display: flex;
   flex-direction: column;
   /* justify-content: space-evenly; */
   align-content: space-evenly;
+}
+.flex-columns-between {
+  display: flex;
+  flex-direction: column;
+  /* justify-content: space-between; */
+  align-content: space-between;
 }
 .flex-rows-evenly {
   display: flex;
@@ -172,6 +219,38 @@ li.v-centered {
  * BG Colors & Borders for testing layouts
  *
  */
+/* black */
+.black-bg {
+  background-color: black;
+}
+.black10-bg {
+  background-color: rgba(0, 0, 0, 0.1);
+  border: 2px solid rgba(0, 0, 0, 0.4);
+}
+.black30-bg {
+  background-color: rgba(0, 0, 0, 0.3);
+  border: 2px solid rgba(0, 0, 0, 0.7);
+}
+.black60-bg {
+  background-color: rgba(0, 0, 0, 0.6);
+  border: 2px solid black;
+}
+
+/* gray */
+.gray-bg {
+  background-color: rgb(192, 192, 192);
+}
+.gray30-bg {
+  background-color: rgba(192, 192, 192, 0.3);
+  border: 2px solid rgba(192, 192, 192, 0.4);
+  border: 2px solid gray;
+}
+.gray60-bg {
+  background-color: rgba(192, 192, 192, 0.6);
+  border: 2px solid rgba(192, 192, 192, 0.8);
+  border: 2px solid gray;
+}
+
 /* yellow */
 .yellow-bg {
   background-color: yellow;
@@ -189,20 +268,6 @@ li.v-centered {
   border: 2px solid yellow;
 }
 
-/* gray */
-.gray-bg {
-  background-color: rgb(192, 192, 192);
-}
-.gray30-bg {
-  background-color: rgba(192, 192, 192, 0.3);
-  border: 2px solid rgba(192, 192, 192, 0.4);
-  border: 2px solid gray;
-}
-.gray60-bg {
-  background-color: rgba(192, 192, 192, 0.6);
-  border: 2px solid rgba(192, 192, 192, 0.8);
-  border: 2px solid gray;
-}
 /* red */
 .red-bg {
   background-color: red;

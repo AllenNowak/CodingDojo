@@ -8,17 +8,62 @@
     <title>Likes</title>
   </head>
   <body>
-    <div class="user-card border-blk flex-columns-evenly">
-      <div class="card-header non-breaking">
-        <span class="name">Some User</span>
-        <span class="non-breaking">
-          <span class="count" id="current-user">3</span>
-          <span>like(s)</span>
-        </span>
-        <button class="btn-shadowed" onclick="likeUser('current-user')">Like</button>
-      </div>
-      <p>This is some filler text, it can say anything we like</p>
+    <!-- <main> -->
+    <div class="header black-bg">
+      <h1>Network</h1>
     </div>
+    <h2>Your Feed</h2>
+    <div id="content" class="flex">
+      <div class="col">
+        <div class="current-user flex-columns border-blk">
+          <img src="user-circle.png" alt="avatar" class="img-40" />
+          <a href="#">Add an avatar</a>
+          <p>James Doe</p>
+        </div>
+      </div>
+      <div class="flex-columns">
+        <div class="user-card flex-columns border-blk">
+          <div class="row">
+            <div class="card-header non-breaking">
+              <span class="name">Neil M</span>
+              <span class="non-breaking">
+                <span class="count" id="user1">9</span>
+                <span>like(s)</span>
+              </span>
+              <button class="btn-shadowed" onclick="likeUser('current-user')">Like</button>
+            </div>
+            <p>I just set up this new discord bot, let me know what you think. <a href="#">link</a></p>
+          </div>
+        </div>
+        <div class="user-card flex-columns border-blk">
+          <div class="row">
+            <div class="card-header non-breaking">
+              <span class="name">Nichole K</span>
+              <span class="non-breaking">
+                <span class="count" id="user2">12</span>
+                <span>like(s)</span>
+              </span>
+              <button class="btn-shadowed" onclick="likeUser('current-user')">Like</button>
+            </div>
+            <p>Just finished my <a href="#">next comic</a>, check it out.</p>
+          </div>
+        </div>
+        <div class="user-card flex-columns border-blk">
+          <div class="row">
+            <div class="card-header non-breaking">
+              <span class="name">Jim R</span>
+              <span class="non-breaking">
+                <span class="count" id="user3">9</span>
+                <span>like(s)</span>
+              </span>
+              <button class="btn-shadowed" onclick="likeUser('current-user')">Like</button>
+            </div>
+            <p>I can't stop listening to the <a href="#">new album</a>. Who else is liking it?</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- </main> -->
     <script src="likes.js"></script>
   </body>
 </html>
