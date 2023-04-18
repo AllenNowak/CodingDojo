@@ -8,12 +8,14 @@
     <title>Likes</title>
   </head>
   <body>
-    <div class="user-card border-blk">
-      <div class="card-header">
-        <span class="Name">Some User</span>
-        <span>3</span>
-        <span>like(s)</span>
-        <button class="btn-shadowed">Like</button>
+    <div class="user-card border-blk flex-columns-evenly">
+      <div class="card-header non-breaking">
+        <span class="name">Some User</span>
+        <span class="non-breaking">
+          <span class="count" id="current-user">3</span>
+          <span>like(s)</span>
+        </span>
+        <button class="btn-shadowed" onclick="likeUser('current-user')">Like</button>
       </div>
       <p>This is some filler text, it can say anything we like</p>
     </div>

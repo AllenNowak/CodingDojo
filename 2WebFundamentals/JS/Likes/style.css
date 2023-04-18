@@ -1,2 +1,36 @@
 @import "dojo.css";
+body {
+  margin: 1rem auto;
+}
 
+.btn-shadowed {
+  background-color: #ffd966;
+  color: black;
+}
+.user-card {
+  margin: 1rem 10%;
+  padding: 1rem;
+  flex-shrink: 0;
+  flex-wrap: nowrap;
+  min-width: min-content;
+  /* display: flex;
+  flex-wrap: nowrap; */
+}
+.card-header {
+  flex: 1;
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+.card-header > .name {
+  flex: 2;
+  font-size: larger;
+}
+.card-header .count {
+  flex: 0;
+}
+.non-breaking {
+  white-space: nowrap;
+}
