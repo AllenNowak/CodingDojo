@@ -24,19 +24,15 @@ h2 {
 }
 
 .current-user {
-  padding: 1rem 0.5rem;
+  padding: 1rem 0.9rem;
   width: min-content;
-  /* flex: 2; */
   gap: 1rem;
-  /* flex-wrap: nowrap; */
-  /* justify-content: space-around; */
-  /* justify-content: center; */
-  /* align-content: center; */
   align-items: center;
   white-space: nowrap;
 }
 .current-user > img {
-  width: 40px;
+  height: 50px;
+  width: 50px;
 }
 .current-user > a {
   font-size: smaller;
@@ -47,14 +43,11 @@ h2 {
   color: black;
 }
 .user-card {
-  /* margin: 1rem 10%; */
   flex: 8;
   padding: 1rem;
   flex-shrink: 0;
   flex-wrap: nowrap;
   min-width: min-content;
-  /* display: flex;
-  flex-wrap: nowrap; */
 }
 .column {
   display: flex;
@@ -62,21 +55,9 @@ h2 {
   gap: 1rem;
 }
 
-/* 
-.col-left {
-    flex: 2;
-}
-
-.col-right {
-    flex: 5;
-    gap: 1rem;
-} */
-
 .card-header {
-  flex: 0;
   margin-bottom: 1rem;
   display: flex;
-  align-content: center;
   align-items: center;
   gap: 1rem;
 }
