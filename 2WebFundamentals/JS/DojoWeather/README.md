@@ -1,3 +1,5 @@
-# foo
+# What's left
 
-some text including assigments or other
+I just need to do code clean-up.
+- Add comments
+- Remove any obsolete or unneeded code.
