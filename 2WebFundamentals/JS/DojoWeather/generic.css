@@ -8,6 +8,27 @@
   font-family: "Balsamiq Sans", cursive;
 }
 
+/*
+ *
+ * Fixed Positioning
+ *
+ */
+ .fixed-top {
+   position:fixed;
+   top: 0;
+ }
+.fixed-right {
+  position:fixed;
+  right: 0;
+}
+.fixed-bot {
+  position:fixed;
+  bottom: 0;
+}
+.fixed-left {
+  position:fixed;
+  left: 0;
+}
 /* Fixed width container class that will "auto-center" itself */
 .fixed-w-container {
   width: 1200px;

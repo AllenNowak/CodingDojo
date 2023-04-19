@@ -50,3 +50,28 @@ header label {
 .weather-summary {
   font-size: x-small;
 }
+.cookiebox {
+  margin-right: 0 10%;
+  align-content: center;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  gap: 1rem;
+  position: fixed;
+  left: 10%;
+  right: 10%;
+  bottom: 0.5rem;
+
+  /* display: flex;
+  position: fixed; */
+}
+.cookiebox > img {
+  height: 3rem;
+}
+.cookie-message > h3 {
+  font-weight: bold;
+  padding-bottom: 0.3rem;
+}
+
+#accept {
+  min-width: fit-content;
+}

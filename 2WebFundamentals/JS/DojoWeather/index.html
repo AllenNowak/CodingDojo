@@ -11,16 +11,16 @@
   <body class="flex-columns">
     <div class="banner flex ltblue-bg white">
       <p class="txt-xxl grow-1x">DojoWeather</p>
-      <p>Burbank</p>
-      <p>Chicago</p>
-      <p>Dallas</p>
+      <p id="burbank" onclick="loadWeatherFor('#burbank')">Burbank</p>
+      <p id="chicago" onclick="loadWeatherFor('#chicago')">Chicago</p>
+      <p id="dallas" onclick="loadWeatherFor('#dallas')">Dallas</p>
     </div>
     <main>
       <header class="flex bborder bpad-1">
         <h2 class="grow-1x">San Jose</h2>
         <div class="degree-units flex txt-smr">
           <label for="units">show temperature in</label>
-          <select name="units" id="units">
+          <select name="units" id="units" onchange="convertTemp(this)">
             <option value="C">&deg; C</option>
             <option value="F">&deg; F</option>
           </select>
@@ -64,6 +64,20 @@
           </div>
         </div>
       </div>
+      <!-- There's gotta be a way to do this w/o relying on a div. -->
+      <div id="cookie-notice" class="cookiebox flex border-blk ltgray-bg">
+        <img src="./assets/cookie.png" alt="a cookie" />
+        <div class="cookie-message">
+          <h3>Stop! Cookie Time</h3>
+          <p>
+            We use cookies (sadly not the edible ones) to personalize content and ads, to provide social media features and
+            to analyse our traffic.
+            <a href="#">Read more...</a>
+          </p>
+        </div>
+        <button id="accept" class="btn-shadowed ltblue-bg black" onclick="dismissCookieBar()">I Accept</button>
+      </div>
     </main>
+    <script src="script.js"></script>
   </body>
 </html>
