@@ -68,21 +68,27 @@ function howMany(i, j, element) {
     return;
   }
 
-  let count = 0
-  for(let row =i-1; row<=i+1; row++) {
-      for(let col =j-1; col<=j+1; col++) {
-          if(!( row == i && col == j)) {
-              count += checkSquare(row, col);
-          }
-      }
-  }
-
+  let count = getNeighborsCount(i, j);
+  
   element.innerText = '' + count;
   return count;
 }
 
-function ninjaWasHiding(i, j, element) {
+function ninjaWasHiding(i, j) {
   return currentDojo[i][j] > 0;
+}
+
+function getNeighborsCount(i, j) {
+  let count = 0;
+  for(let row =i-1; row<=i+1; row++) {
+    for(let col =j-1; col<=j+1; col++) {
+        if(!( row == i && col == j)) {
+            count += checkSquare(row, col);
+        }
+    }
+  }
+  
+  return count;
 }
 
 function checkSquare(i,j) {
