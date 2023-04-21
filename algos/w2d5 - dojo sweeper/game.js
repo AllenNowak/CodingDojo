@@ -33,16 +33,16 @@ function seedArrayWithNNinjas (n, arr) {
     const maxReTries = n+4;
     let collisions = 0
     for (let i = 0; i < n && collisions<maxReTries; i++) {
-        const rndm = Math.floor(Math.random() * maxFlatIndex);
-        const row = Math.floor(rndm / height);
-        const col = rndm % length;
+      const rndm = Math.floor(Math.random() * maxFlatIndex);
+      const row = Math.floor(rndm / height);
+      const col = rndm % length;
 
-        if(arr[row][col] == 0) {
-          arr[row][col] = 1;
-        } else {
-          collisions++;
-          i--;    // Try again, up until a point
-        }
+      if(arr[row][col] == 0) {
+        arr[row][col] = 1;
+      } else {
+        collisions++;
+        i--;    // Try again, up until a point
+      }
     }
     return arr;
 }
@@ -75,23 +75,23 @@ function howMany(i, j, element) {
 }
 
 function ninjaWasHiding(i, j) {
-  return currentDojo[i][j] > 0;
+  return  getCountAt(i,j) > 0;
 }
 
 function getNeighborsCount(i, j) {
   let count = 0;
   for(let row =i-1; row<=i+1; row++) {
     for(let col =j-1; col<=j+1; col++) {
-        if(!( row == i && col == j)) {
-            count += checkSquare(row, col);
-        }
+      if(!( row == i && col == j)) {
+          count += getCountAt(row, col);
+      }
     }
   }
   
   return count;
 }
 
-function checkSquare(i,j) {
+function getCountAt(i,j) {
     if(i<0 || i>=currentDojo.length) return 0;
     if(j<0 || j>=currentDojo[i].length) return 0;
 
