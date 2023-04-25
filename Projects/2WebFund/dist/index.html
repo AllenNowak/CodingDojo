@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Tckr Tracker</title>
+  </head>
+  <body class="bg-white dark:bg-slate-800">
+    <!-- Nav Bar -->
+    <div class="nav"><span class="text-white">Main Title & Nav</span></div>
+
+    <!-- Stock Tickers -->
+    <div class="tickers-wrapper">
+      <div id="upper-ticker" class="ticker bg-black h-6 pb-2 w-full">
+        <span class="tickers text-lime-700">Upper Ticker Here</span>
+      </div>
+      <div id="lower-ticker" class="ticker bg-black h-6 pb-2 w-full">
+        <span class="tickers text-red-700">Lower Ticker Here</span>
+      </div>
+    </div>
+
+    <div class="px-6 py-2 container flex-col gap-4">
+      <!-- Main Widgets -->
+      <div class="main flex flex-col flex-wrap space-y-2 gap-4 w-full">
+        <div id="chart-main" class="chart-main h-36 w-full outline-dashed outline-yellow-700">
+          <span class="h-24 text-yellow-200">Main Chart</span>
+        </div>
+        <div id="table-main" class="table-main h-24 w-full outline-dashed outline-yellow-700">
+          <span class="h-24 text-yellow-200">Main Table</span>
+        </div>
+      </div>
+
+      <!-- Footer -->
+      <div class="footer flex-row w-full outline-dashed outline-slate-500 h-6">
+        <span class="text-slate-500 flex justify-center align-bottom"
+          >A work in progress. &nbsp; <span class="text-slate-400">Patientez</span>, SVP.</span
+        >
+      </div>
+    </div>
+
+    <!-- Extra test widgets -->
+    <h1 class="color text-lime-500 font-bold underline">Hello world!</h1>
+    <!-- button.bg-blue-500.text-white.font-bold.py-2.px-4.rounded -->
+    <div class="container ring-1 ring-slate-900/5 shadow-xl">
+      <button class="bg-blue-500 text-white font-bold py-2 px-4 rounded hover:bg-blue-400 hover:font-outline-1">
+        Nav Nav Nav
+      </button>
+      <button class="bg-blue-500 text-white font-bold py-2 px-4 rounded hover:font-outline-1">Nav Nav Nav</button>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
