@@ -7,7 +7,7 @@ class Store:
     def __repr__(self):
         rep = f'Name: {self.name}\n'
         for prod in self.products:
-            # rep += f'Product: {prod.name} @ ${prod.price} \n'
+            # https://stackabuse.com/format-number-as-currency-string-in-python/
             rep += f"Product: {prod.name} @ "
             rep += "${:,.2f}".format(prod.price) + "\n"
         return rep

@@ -4,8 +4,7 @@ class Product:
         self.price = price
         self.category = category
     def __str__(self):
-        # foo = f'${:,.2f}".format(prod.price)'
-        # return f'Name: {self.name}, Category: {self.category}, Price: {self.price}'
+        # https://stackabuse.com/format-number-as-currency-string-in-python/
         return f'Name: {self.name}, Category: {self.category}, Price: ' + '${:,.2f}'.format(self.price)
     def print_info(self):
         print(self)
