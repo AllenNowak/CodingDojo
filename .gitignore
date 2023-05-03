@@ -1,6 +1,7 @@
 */**/*.zip
 *.htmlvalidate.json
 */**/spike.*
+*/**/__pycache__/
 
 GettingReady/
 IntroToProgramming/
