@@ -2,6 +2,7 @@
 *.htmlvalidate.json
 */**/spike.*
 */**/__pycache__/
+*/**/*ignore
 
 GettingReady/
 IntroToProgramming/
