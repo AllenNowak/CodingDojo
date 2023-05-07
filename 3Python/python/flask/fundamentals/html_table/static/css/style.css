@@ -1,0 +1,8 @@
+body {
+  padding: 0 1.9rem; /* Aim to remove the padding assignment via flex */
+  font-family: 'Montserrat', sans-serif;
+}
+thead {
+  border-bottom: 2px solid orangered;
+}
+
