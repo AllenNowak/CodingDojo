@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">    
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+
+    <title>Click Counter</title>
+</head>
+<body>
+    <div class="container">
+        
+        <!-- Header -->
+        <h1 class="bg-dark text-light text-uppercase">Counter</h1>
+        <div class="counter_div">
+            <span class="visit_count">{{session['visits']}}</span><span>time{% if session['visits']| int > 1 %}s {% endif %}</span>
+        </div>
+    
+        <!-- Main Content -->
+         <form action="/increment" method="post">
+            <div class="action-row">
+                <a class="btn btn-primary plus-two" href="/add" role="button">+2</a>
+                <input type="range" id="jumper" name="jumper" min="1" max="11" value="{{default_jump}}" onchange="update_submit(this)">
+                <input id="subm" type="submit" value="Plus Some" class="btn btn-primary plus-two">
+            </div>
+            <a class="btn btn-primary plus-two" href="/destroy_session" role="button">Reset</a>
+        </form>
+
+        <!-- Footer -->
+        <footer class="container counter_div">
+            <span class="visit_count">{{session['monotonic_visits']}}</span><span>time{% if session['monotonic_visits']| int > 1 %}s {% endif %}</span>
+        </footer>
+    </div>
+
+    <script type="text/javascript" src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
+

@@ -1,0 +1,50 @@
+
+body {
+  font-family: 'Montserrat', sans-serif; 
+  text-align: center;
+  min-width: 600px;
+  min-height: 256px;
+}
+.container {
+  text-align: center;
+}
+h1 {
+  text-align: center;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+.counter_div {
+  display: flex;
+  justify-content: center;
+  justify-items: center;
+  text-align: center;
+  gap: 1rem;
+}
+span {
+  display: flex;
+  align-items: center;
+}
+.visit_count {
+  font-size: x-large;
+}
+.plus-two {
+  /* width: 9rem; */
+  width: 150px;
+  padding: auto 0.75rem;
+  min-width: 9rem;
+}
+.action-row {
+  display: flex;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  justify-content: space-between;
+}
+.action-row>* {
+  display: flex;
+  justify-content: center;
+  flex: 0 0 6rem;
+  /* width: 6rem; */
+}
+footer {
+  margin-top: 1rem;
+}
