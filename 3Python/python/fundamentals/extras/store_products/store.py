@@ -4,6 +4,7 @@ class Store:
     def __init__(self, name):
         self.name = name
         self.products = []
+        self.products_dict = []
     def __repr__(self):
         rep = f'Name: {self.name}\n'
         for prod in self.products:
@@ -13,6 +14,7 @@ class Store:
         return rep
     def add_product(self, new_product):
         self.products.append(new_product)
+        self.products_dict.append( { id: new_product.name, val: new_product })
         return self
     def sell_product(self, id):
         product = self.products.pop(id)
@@ -27,6 +29,5 @@ class Store:
         for product in clearance_list:
             product.update_price(percent_discount, False)
         return self
-
-
+    
 
