@@ -1,0 +1,21 @@
+.flex {
+    display: flex;
+  }
+  .red {
+      background-color: red;
+  }
+  .black {
+      background-color: black;
+  }
+  .square {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    padding: 0;
+    margin: 0;
+  }
+  div {
+    gap: 0;
+  
+  }
+  
