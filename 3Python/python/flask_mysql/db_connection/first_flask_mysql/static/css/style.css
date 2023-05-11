@@ -1,0 +1,31 @@
+body {
+  padding: 0 1.9rem; /* Aim to remove the padding assignment via flex */
+  flex-direction: column;
+  /* height: 90vh; */
+}
+.wrapper {
+  flex: 1;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  /* justify-content: space-between; */
+  padding: 1.5rem 0;
+}
+.btn-simple {
+  /* width: 12em; */
+  /* width: 4.5em; */
+
+  border: 3px solid black;
+  background-color: #2260dd;
+  color: whitesmoke;
+  box-shadow: 3px 5px black;
+  align-items: center;
+  justify-content: center;
+  padding: 0.2rem 0.5rem;
+}
+th {
+  width: 5rem;
+  text-align:start;
+}
+table {
+  width: 67%;
+}
