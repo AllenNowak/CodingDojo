@@ -6,27 +6,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="{{ url_for('static',filename='css/style.css') }}">
-    <title>Lunch!</title>
+    <title>Read (One)</title>
 </head>
 <body>
-    <a href="/" class="btn btn-info btn-outline-primary" >Home</a>
     <div class="d-flex justify-content-around flex-wrap p-5">
-
-
-            <div class="card col-9 bg-dark text-light w-50">
-                <div class="card-body">
-                    <h2 class="card-title text-primary">{{ user['id'] }}</h2>
-                    <p class="card-text">Full Name: {{user['first_name']}} {{user['last_name']}}</p>
-                    <p class="card-text">Email: {{user['email']}}</p>
-                    <p class="card-text">Created On: {{user['created_at']}}</p>
-                    <p class="card-text">Last Updated On: {{user['updated_at']}}</p>
-                    <p>
-                        <a href="/edit_page/{{user['id']}}"  >Edit</a> | 
-                        <a href="/delete/{{user['id']}}"  >Delete</a>
-                    </p>
-                </div>
+        <div class="card col-9 bg-dark text-light w-50">
+            <div class="card-body">
+                <h2 class="card-title text-primary">User {{ user['id'] }}</h2>
+                <a href="/users" >Home</a>
+                <p class="card-text">Full Name: {{user['first_name']}} {{user['last_name']}}</p>
+                <p class="card-text">Email: {{user['email']}}</p>
+                <p class="card-text">Created On: {{user['created_at']}}</p>
+                <p class="card-text">Last Updated On: {{user['updated_at']}}</p>
+                <p>
+                    <a href="/users/{{user['id']}}/edit"  >Edit</a> | 
+                    <a href="/users/{{user['id']}}/destroy"  >Delete</a>
+                </p>
             </div>
-
+        </div>
     </div>
 </body>
 </html>

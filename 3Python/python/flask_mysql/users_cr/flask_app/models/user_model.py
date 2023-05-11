@@ -6,7 +6,6 @@ class User:
         self.id = data['id']
         self.first_name= data['first_name']
         self.last_name= data['last_name']
-        self.email = data['email']
         self.created_at = data['created_at']
         self.updated_at = data['updated_at']
     def __repr__(self):
@@ -44,24 +43,40 @@ class User:
         user = users_from_db[0]
         return user
 
+
 # Update
-    @classmethod
-    def update(cls, data):
-        query = """
-            UPDATE users SET first_name = %(first_name)s, last_name = %(last_name)s, email = %(email)s
-            WHERE id = %(id)s;
-            """
-        return connectToMySQL(DB).query_db(query , data)
-
 # Delete
-    @classmethod
-    def destroy_user_by_id(cls,id):
-        data = { 'id': id }
-        query = "DELETE FROM users WHERE id = %(id)s;"
-        print('\n'*2 + '-'*20)
-        print(f'\nTrying to Destroy user.\nQuery:')
-        print(data)
-        print('-'*20 + '\n'*2)
-        # print(query + f'id: {data["id"]}\n\n')
-        return connectToMySQL(DB).query_db(query,data)
 
+
+
+# Vestigial below here
+    @classmethod
+    def save_burgers(cls,data):
+        query = "INSERT INTO burgers (name,bun,meat,calories,created_at,updated_at) VALUES (%(name)s,%(bun)s,%(meat)s,%(calories)s,NOW(),NOW())"
+        return connectToMySQL('burgers').query_db(query,data)
+
+    @classmethod
+    def get_all_burgers(cls):
+        query = "SELECT * FROM burgers;"
+        burgers_from_db =  connectToMySQL('burgers').query_db(query)
+        burgers =[]
+        for b in burgers_from_db:
+            burgers.append(cls(b))
+        return burgers
+
+    @classmethod
+    def get_one_burgers(cls,data):
+        query = "SELECT * FROM burgers WHERE burgers.id = %(id)s;"
+        burger_from_db = connectToMySQL('burgers').query_db(query,data)
+
+        return cls(burger_from_db[0])
+
+    @classmethod
+    def update_burgers(cls,data):
+        query = "UPDATE burgers SET name=%(name)s, bun=%(bun)s, meat=%(meat)s, calories=%(calories)s,updated_at = NOW() WHERE id = %(id)s;"
+        return connectToMySQL('burgers').query_db(query,data)
+
+    @classmethod
+    def destroy_burgers(cls,data):
+        query = "DELETE FROM burgers WHERE id = %(id)s;"
+        return connectToMySQL('burgers').query_db(query,data)

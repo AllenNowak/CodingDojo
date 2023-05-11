@@ -4,21 +4,49 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Create</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/style.css') }}">
+    <title>Edit</title>
 </head>
 <body>
+    <div class="d-flex justify-content-around flex-wrap p-5">
+        <div class="card col-9 bg-dark text-light w-50">
+            <div class="card-body">
+                <h2 class="card-title text-primary">Edit User {{ user['id'] }}</h2>
+                <a href="/users" class="btn btn-primary" >Home</a>
+                <!-- <p class="card-text">Full Name: {{user['first_name']}} {{user['last_name']}}</p> -->
+                <!-- <p class="card-text">Email: {{user['email']}}</p> -->
+                <form action="/users/{{user.id}}/update", method="POST" class="d-flex flex-column justify-content-around flex-wrap">
+                    <label for="first_name"  class="card-text">First Name:</label>
+                    <input name="first_name" type="text" id="first_name" value="{{user.first_name}}">
+                    <label for="last_name"  class="card-text">Last Name:</label>
+                    <input name="last_name" type="text" id="last_name" value="{{user.last_name}}">
+                    <label for="email"  class="card-text">Email:</label>
+                    <input name="email" type="text" id="email" value="{{user.email}}">
+                    <div class="col-10">
+                        <input type="submit" value="Update" class="btn btn-primary">
+                        <a href="/users/{{user.id}}">Show User</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!--
     <div>
-        <h1>Add a New User</h1>
+        <h1>Edit User {{user.id}}</h1>
         <a href="/users">Home</a>
     </div>
-    <form action="/users/new", method="POST">
+    <form action="/users/save", method="POST">
         <label for="first_name" >First Name:</label>
         <input name="first_name" type="text" id="first_name" value="{{user.first_name}}">
         <label for="last_name" >Last Name:</label>
         <input name="last_name" type="text" id="last_name" value="{{user.last_name}}">
         <label for="email" >Email:</label>
         <input name="email" type="text" id="email" value="{{user.email}}">
-        <input type="submit" value="Create">
+        <input type="submit" value="Update">
+        <a href="/users/{{user.id}}">Show User</a>
     </form>
+    -->
 </body>
 </html>
