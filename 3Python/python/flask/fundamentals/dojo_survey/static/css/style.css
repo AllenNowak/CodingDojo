@@ -1,0 +1,121 @@
+
+body {
+  font-family: 'Montserrat', sans-serif; 
+  /* text-align: center; */
+  min-width: 600px;
+  min-height: 256px;
+  height: 80vh;
+}
+.container {
+  padding: 2.5rem;
+  /* display:flex; */
+  /* flex-direction: column; */
+}
+h1 {
+  /* text-align: center; */
+  /* padding-top: 1rem;
+  padding-bottom: 1rem; */
+}
+form {
+  display:flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+form>div>* {
+  display: block;
+}
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.form-control {
+  margin-bottom: 1rem;
+}
+.header-logo {
+  height: 100px;
+}
+
+
+/**/
+/**/
+/**/
+/*   Styles from w3schools for autocomplete */
+/**/
+/**/
+/**/
+.autocomplete {
+  /*the container must be positioned relative:*/
+  position: relative;
+  display: inline-block;
+}
+input {
+  border: 1px solid transparent;
+  /* background-color: #f1f1f1; */
+  padding: 10px;
+  font-size: 16px;
+}
+input[type=text] {
+  /* background-color: #f1f1f1; */
+  width: 100%;
+}
+/* This is for the w3s submit button itself (not on my page) */
+input[type=submit] {
+  background-color: DodgerBlue;
+  color: #fff;
+}
+.autocomplete-items {
+  position: absolute;
+  border: 1px solid #d4d4d4;
+  border-bottom-left-radius: 0.375rem;
+  border-bottom-right-radius: 0.375rem;
+  border-bottom: none;
+  border-top: none;
+  z-index: 99;
+  /*position the autocomplete items to be the same width as the container:*/
+  /* top: 100%; */
+  top: 80%;
+  left: 0;
+  right: 0;
+  background-color: #363b40;
+  fill-opacity: 1;
+}
+.autocomplete-items-bottom-radius-off {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+input #myInput .bs-overrideable.form-control {
+  border-bottom-left-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+}
+
+.autocomplete-items div {
+  padding: 10px;
+  cursor: pointer;
+  background-color: var(--bs-bg-slategray);
+  fill-opacity: 1;
+  border-bottom: 1px solid #d4d4d4;
+}
+.autocomplete-items div:last-of-type {
+  border-bottom-left-radius: 0.375rem;
+  border-bottom-right-radius: 0.375rem;
+}
+.autocomplete-items div:hover {
+  /*when hovering an item:*/
+  /* background-color: #e9e9e9; */
+  background-color: orange;
+  color: black;
+}
+.auto-complete-entered-part {
+  font-size: 1.125rem;
+  margin-right: 0.1rem;
+}
+
+.autocomplete-active {
+  /*when navigating through the items using the arrow keys:*/
+  background-color: dodgerblue !important;
+  /* color: black; */
+}
+
+
