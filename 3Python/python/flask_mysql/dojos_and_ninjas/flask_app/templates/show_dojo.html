@@ -13,8 +13,24 @@
         <div class="card col-9 bg-dark text-light w-50">
             <div class="card-body">
                 <h2 class="card-title text-primary">{{ dojo.name }} Ninjas</h2>
-                <p>Give a guy ten minutes</p>
-                <a href="/dojos" >Home</a>
+                
+                <table>
+                    <thead>
+                        <td>First Name</td>
+                        <td>Last Name</td>
+                        <td>Age</td>
+                    </thead>
+                    <tbody>
+                        {% for ninja in dojo.ninjas  %}
+                        <tr>
+                            <td>{{ninja.first_name}}</td>
+                            <td>{{ninja.last_name}}</td>
+                            <td>{{ninja.age}}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                <a href="/dojos" >Go Home</a>
             </div>
         </div>
     </div>

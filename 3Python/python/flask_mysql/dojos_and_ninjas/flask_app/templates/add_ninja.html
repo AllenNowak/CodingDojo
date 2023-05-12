@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/style.css') }}">
+    <title>Dojo Show</title>
+</head>
+<body>
+    <div class="container mx-5">
+        <div class="d-flex gap-3 mb-3">
+            <div class="card bg-dark text-light w-50">
+                <h1 class="bg-dark text-white text-center text-lg-center mb-4">New Dojo</h1>
+                <form action="/create_ninja", method="POST" class="d-flex flex-column gap-4 px-4 justify-content-around flex-wrap">
+                    <label for="dojo_select">Dojo:</label>
+                    <select name="dojo_id" id="dojo_id">
+                        {% for dojo in dojos %}
+                            <option value="{{dojo.id}}">{{dojo.name}}</option>
+                        {% endfor %}
+                    </select>
+                    
+                    <label for="first_name" class="card-text ">First Name:</label>
+                    <input name="first_name" type="text" id="first_name" value="" >
+                    <label for="last_name"  class="card-text ">Last Name:</label>
+                    <input name="last_name" type="text" id="last_name" value="" >
+                    <label for="age"  class="card-text ">Age:</label>
+                    <input name="age" type="text" id="age" value="" >
+                    <div class="d-flex">
+                        <button type="submit" class="btn btn-primary justify-content-center px-4">Create</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <a class="btn btn-primary px-4" href="/ninjas">Add Ninja</a>
+    </div>
+</body>
+</html>

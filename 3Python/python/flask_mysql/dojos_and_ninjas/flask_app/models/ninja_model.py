@@ -18,16 +18,16 @@ class Ninja:
 # Create
     @classmethod
     def create(cls, data):
-        data.table_name = TABLE
-        query = """
-            INSERT INTO %(table)s (name) VALUES (%(fname)s, %(lname)s, %(age)s )
+        # data.table_name = TABLE
+        query = f"""
+            INSERT INTO {TABLE} (first_name, last_name, age, dojo_id) VALUES (%(first_name)s, %(last_name)s, %(age)s, %(dojo_id)s )
             """
         return connectToMySQL(DB).query_db(query , data)
 # Read
 # Read all
     @classmethod
     def read_all(cls):
-        query = """SELECT * FROM %(TABLE)s;"""
+        query = f"""SELECT * FROM {TABLE};"""
         rows_from_db = connectToMySQL(DB).query_db(query)
         rows =[]
         for one_row in rows_from_db:
@@ -38,18 +38,19 @@ class Ninja:
 # Read 1
     @classmethod
     def read_one(cls, id):
-        query = "SELECT * FROM %(TABLE)s WHERE id = %(id)s;"
-        data = { 'table': TABLE, 'id': id }
+        query = "SELECT * FROM {TABLE} WHERE id = %(id)s;"
+        data = { 'id': id }
         rows_from_db = connectToMySQL(DB).query_db(query, data)
         row = rows_from_db[0]
+        
         return row
 
 # Update
     @classmethod
     def update(cls, data):
-        data.table = TABLE
-        query = """
-            UPDATE %(TABLE)s SET 
+        # data.table = TABLE
+        query = f"""
+            UPDATE {TABLE} SET 
             first_name = %(first_name)s, last_name = %(last_name)s, email = %(email)s
             WHERE id = %(id)s;
             """
@@ -58,8 +59,8 @@ class Ninja:
 # Delete
     @classmethod
     def delete_by_id(cls,id):
-        data = { 'table': TABLE, 'id': id }
-        query = "DELETE FROM %(TABLE)s  WHERE id = %(id)s;"
+        data = { 'id': id }
+        query = "DELETE FROM {TABLE}  WHERE id = %(id)s;"
         print('\n'*2 + '-'*20)
         print(f'\nTrying to Destroy record.\nQuery:')
         print(data)
