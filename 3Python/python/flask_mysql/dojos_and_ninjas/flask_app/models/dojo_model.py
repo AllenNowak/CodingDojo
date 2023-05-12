@@ -1,7 +1,6 @@
 from flask_app.config.mysqlconnection import connectToMySQL
 from flask_app.models import ninja_model
 from flask_app import DB
-# DB = 'dojos_and_ninjas_schema'
 TABLE = 'dojos'
 
 class Dojo:
@@ -10,17 +9,10 @@ class Dojo:
         self.name= data['name']
         self.created_at = data['created_at']
         self.updated_at = data['updated_at']
-        # self.ninjas = data['ninjas']
+        # self.ninjas = data['ninjas']          # Spencer's version appended the attribute dynamically
 
     def __repr__(self):
         return f'id:{self.id}, name: {self.name}, crt: {self.created_at}, upt: {self.updated_at}, ninjas: {self.ninjas}\n'
-
-    # Should make this a static method
-    # @classmethod
-    # def prnt(data):
-    #     print('\n'*3 + '-'*10)
-    #     print(data)
-    #     print('-'*10 + '\n'*3)
 
 # CRUD
 # Create
@@ -35,7 +27,6 @@ class Dojo:
 # Read 1
     @classmethod
     def read_one(cls, id):
-        # query = f"SELECT * FROM {TABLE} WHERE id = %(id)s;"
         query = f"""
                     SELECT * 
                     FROM {TABLE}
@@ -51,19 +42,6 @@ class Dojo:
             return rows_from_db
 
         dojo = cls(rows_from_db[0])
-
-        # ninjas = []
-        # dict = {
-        #     'id' : dojo['id'],
-        #     'name' : dojo['name'],
-        #     'created_at' : dojo['created_at'],
-        #     'updated_at' : dojo['updated_at'],
-        #     'ninjas' : ninjas
-        # }
-
-        # # I should handle the case where there is no dojo returned (eg user navigated to the url w/ an invalid id)
-        # one_dojo = cls(dict)
-
 
         ninja_list = []
         for one_row in rows_from_db:
@@ -82,11 +60,6 @@ class Dojo:
             ninja_list.append(instance)
 
         dojo.ninjas = ninja_list
-        # print("\n\n\n" + "-"*10)
-        # print(f'The ninjas list is: {ninja_list}')
-        # dict['ninjas'] = ninja_list
-        # print(f'The full dict is: {dict}')
-        # print("-"*10 + "\n\n\n")
         
         return dojo
 
@@ -96,9 +69,11 @@ class Dojo:
         query = f"""SELECT * FROM {TABLE};"""
         data = { 'table': TABLE }
         rows_from_db = connectToMySQL(DB).query_db(query, data)
+        # send back objects not rows
 
         if not rows_from_db: 
             rows_from_db = [] 
 
+        # Q for Spencer: do these need to be Objects?
         return rows_from_db
 

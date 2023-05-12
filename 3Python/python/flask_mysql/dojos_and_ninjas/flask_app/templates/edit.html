@@ -14,8 +14,6 @@
             <div class="card-body">
                 <h2 class="card-title text-primary">Edit User {{ user['id'] }}</h2>
                 <a href="/users" class="btn btn-primary" >Home</a>
-                <!-- <p class="card-text">Full Name: {{user['first_name']}} {{user['last_name']}}</p> -->
-                <!-- <p class="card-text">Email: {{user['email']}}</p> -->
                 <form action="/users/{{user.id}}/update", method="POST" class="d-flex flex-column justify-content-around flex-wrap">
                     <label for="first_name"  class="card-text">First Name:</label>
                     <input name="first_name" type="text" id="first_name" value="{{user.first_name}}">
@@ -31,22 +29,5 @@
             </div>
         </div>
     </div>
-
-    <!--
-    <div>
-        <h1>Edit User {{user.id}}</h1>
-        <a href="/users">Home</a>
-    </div>
-    <form action="/users/save", method="POST">
-        <label for="first_name" >First Name:</label>
-        <input name="first_name" type="text" id="first_name" value="{{user.first_name}}">
-        <label for="last_name" >Last Name:</label>
-        <input name="last_name" type="text" id="last_name" value="{{user.last_name}}">
-        <label for="email" >Email:</label>
-        <input name="email" type="text" id="email" value="{{user.email}}">
-        <input type="submit" value="Update">
-        <a href="/users/{{user.id}}">Show User</a>
-    </form>
-    -->
 </body>
 </html>

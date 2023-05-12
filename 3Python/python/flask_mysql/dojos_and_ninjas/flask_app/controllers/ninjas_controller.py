@@ -18,7 +18,6 @@ def new_ninja():
     #     'dojos_list': dojos_list
     # }
     return render_template("add_ninja.html", dojos=dojos_list)
-    # return render_template("show_Ninja.html", dojo = dojo)
 
 @app.route('/create_ninja', methods=['post'])
 def create_ninja():

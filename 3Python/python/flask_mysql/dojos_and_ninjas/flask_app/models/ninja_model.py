@@ -1,7 +1,9 @@
 from flask_app.config.mysqlconnection import connectToMySQL
 from flask_app import DB
-# DB = 'dojos_and_ninjas_schema'
-TABLE = 'ninjas'
+
+# Trying to make it easier to copy/past CRUD queries from this model into 
+# a future implementation w fewer freplacements, this isn't perfect tho when JOINing
+TABLE = 'ninjas'        
 
 class Ninja:
     def __init__(self,data):
@@ -11,6 +13,7 @@ class Ninja:
         self.age = data['age']
         self.created_at = data['created_at']
         self.updated_at = data['updated_at']
+        # include the dojo_id field
     def __repr__(self):
         return f'id:{self.id}, fname: {self.first_name}, lname: {self.last_name}, crt: {self.created_at}, upt: {self.updated_at}'
 
@@ -18,7 +21,6 @@ class Ninja:
 # Create
     @classmethod
     def create(cls, data):
-        # data.table_name = TABLE
         query = f"""
             INSERT INTO {TABLE} (first_name, last_name, age, dojo_id) VALUES (%(first_name)s, %(last_name)s, %(age)s, %(dojo_id)s )
             """
@@ -42,8 +44,8 @@ class Ninja:
         data = { 'id': id }
         rows_from_db = connectToMySQL(DB).query_db(query, data)
         row = rows_from_db[0]
-        
-        return row
+
+        return cls(row)
 
 # Update
     @classmethod
@@ -65,6 +67,6 @@ class Ninja:
         print(f'\nTrying to Destroy record.\nQuery:')
         print(data)
         print('-'*20 + '\n'*2)
-        # print(query + f'id: {data["id"]}\n\n')
+        
         return connectToMySQL(DB).query_db(query,data)
 
