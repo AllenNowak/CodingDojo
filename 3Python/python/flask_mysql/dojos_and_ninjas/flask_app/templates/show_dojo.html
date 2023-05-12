@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/style.css') }}">
+    <title>Dojo Show</title>
+</head>
+<body>
+    <div class="d-flex justify-content-around flex-wrap p-5">
+        <div class="card col-9 bg-dark text-light w-50">
+            <div class="card-body">
+                <h2 class="card-title text-primary">{{ dojo.name }} Ninjas</h2>
+                <p>Give a guy ten minutes</p>
+                <a href="/dojos" >Home</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
