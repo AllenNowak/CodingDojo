@@ -27,6 +27,8 @@ def show_ninjas_in_one_dojo(id):
 
 @app.route('/add_dojo', methods=['post'])
 def add_dojo():
+    print('\n\n\n\n------------------ Request Form:')
+    print(request.form)
     Dojo.create(request.form)
     # name = request.form['name']
     # Dojo.create(name)

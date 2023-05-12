@@ -24,7 +24,7 @@ class Dojo:
 
 # CRUD
 # Create
-    # @classmethod
+    @classmethod
     def create(cls, data):
         query = f"""
             INSERT INTO {TABLE} (name) VALUES (%(name)s)
