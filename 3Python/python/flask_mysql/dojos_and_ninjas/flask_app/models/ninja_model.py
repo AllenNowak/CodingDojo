@@ -47,6 +47,8 @@ class Ninja:
 
         return cls(row)
 
+
+# Unused, what are you doing here?  Nothing to see. Move along.
 # Update
     @classmethod
     def update(cls, data):

@@ -11,6 +11,7 @@ class Friend:
         self.created_at = data['created_at']
         self.updated_at = data['updated_at']
     # Now we use class methods to query our database
+
     def __repr__(self):
         str = f'{self.id}, {self.first_name}, {self.last_name}, {self.occupation}'
         return str
@@ -31,5 +32,14 @@ class Friend:
     def save(cls, data):
         query = "INSERT INTO friends(first_name , last_name , occupation , created_at , updated_at ) VALUES ( %(fname)s , %(lname)s , %(occ)s , NOW(), NOW() );"
         # data is a dictionary that will be passed into the save method from server.py
-        return connectToMySQL('first_flask').query_db( query, data )
+        next_id = connectToMySQL('first_flask').query_db( query, data )
+        return next_id
+    
+    @classmethod
+    def get_by_id(cls, data):
+        # This is probably incorrect. instead of %(data), should it be %(data.id) ?
+        query = "SELECT * FROM friends WHERE id = %(data)s ;"
+
+        result = connectToMySQL('first_flask').query_db( query, data )
+        return result
 

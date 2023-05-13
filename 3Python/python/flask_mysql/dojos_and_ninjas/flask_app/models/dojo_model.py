@@ -11,8 +11,8 @@ class Dojo:
         self.updated_at = data['updated_at']
         # self.ninjas = data['ninjas']          # Spencer's version appended the attribute dynamically
 
-    def __repr__(self):
-        return f'id:{self.id}, name: {self.name}, crt: {self.created_at}, upt: {self.updated_at}, ninjas: {self.ninjas}\n'
+    # def __repr__(self):
+    #     return f'id:{self.id}, name: {self.name}, crt: {self.created_at}, upt: {self.updated_at}, ninjas: {self.ninjas}\n'
 
 # CRUD
 # Create
@@ -70,10 +70,13 @@ class Dojo:
         data = { 'table': TABLE }
         rows_from_db = connectToMySQL(DB).query_db(query, data)
         # send back objects not rows
+        dojos = []
 
         if not rows_from_db: 
-            rows_from_db = [] 
+            return dojos 
+        for one_row in rows_from_db:
+            dojos.append( cls(one_row ))
 
         # Q for Spencer: do these need to be Objects?
-        return rows_from_db
+        return dojos
 
