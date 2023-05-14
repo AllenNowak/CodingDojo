@@ -9,34 +9,80 @@
     <title>Login</title>
 </head>
 <body>
-    <div class="container mx-5">
-        <div class="d-flex gap-3 mb-3">
-            <div class="card bg-dark text-light w-50">
-                <h1 class="bg-dark text-white text-center text-lg-center mb-4">Register</h1>
+    <div class="container mx-auto">
+        <div class="d-flex gap-5 mb-3">
+
+            <!-- Registration -->
+            <div class="container card bg-dark text-light w-50 gap-2" style="padding:2.7rem;">
+                <h1 class="bg-dark text-primary text-lg-start">Register</h1>
+
+                {% with messages = get_flashed_messages(category_filter=['first_name', 'last_name', 'email', 'password', 'confirm_pass']) %}
+                    {% if messages %}
+                        <div class="form-control border-2 border-danger bg-danger-subtle text-danger mb-2">
+                            {% for message in messages %}
+                                <p>{{message}}</p>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                {% endwith %}
+                    
 
                 <!--  Registration Block  -->
-                <form action="/register", method="POST" class="d-flex flex-column gap-4 px-4 justify-content-around flex-wrap">
-                    <label for="first_name"  class="card-text ">First Name:</label>
-                    <input name="first_name" type="text" id="first_name" value="" >
-
-                    <label for="last_name"  class="card-text ">Last Name:</label>
-                    <input name="last_name" type="text" id="last_name" value="" >
-
-                    <label for="email"  class="card-text ">Email:</label>
-                    <input name="email" type="email" id="email" value="" >
-
-                    <label for="password"  class="card-text ">Password:</label>
-                    <input name="password" type="password" id="password" value="" >
-
-                    <label for="confirm_pass"  class="card-text ">Confirm Password:</label>
-                    <input name="confirm_pass" type="password" id="confirm_pass" value="" >
-
-                    <div class="d-flex">
-                        <button type="submit" class="btn btn-primary justify-content-center px-4">Register</button>
+                <form action="/register", method="POST">
+                    <div class="d-flex flex-column justify-content-around flex-wrap">
+                        <label for="first_name"  class="form-label">First Name:</label>
+                        <input name="first_name" class="mb-3 form-control" type="text" id="first_name" value="" >
+    
+                        <label for="last_name"  class="form-label">Last Name:</label>
+                        <input name="last_name" class="mb-3 form-control" type="text" id="last_name" value="" >
+    
+                        <label for="email"  class="form-label">Email:</label>
+                        <input name="email" class="mb-3 form-control" type="email" id="email" value="" >
+    
+                        <label for="password"  class="form-label">Password:</label>
+                        <input name="password" class="mb-3 form-control" type="password" id="password" value="" >
+    
+                        <label for="confirm_pass"  class="form-label">Confirm Password:</label>
+                        <input name="confirm_pass" class="mb-3 form-control" type="password" id="confirm_pass" value="" >
+    
+                        <div class="d-flex mt-3">
+                            <button type="submit" class="btn btn-primary justify-content-center px-4">Register</button>
+                        </div>
                     </div>
                 </form>
+            </div>
 
+            <!-- Log In -->
+            <div class="container card bg-dark text-light w-50 gap-2" style="padding:2.7rem;">
+                <h1 class="bg-dark text-success text-lg-start">Login</h1>
 
+                {% with error_msgs = get_flashed_messages(category_filter=['login_isues']) %}
+                    {% if error_msgs %}
+                    <div class="form-control border-2 border-danger bg-danger-subtle text-danger mb-2">
+                        {% for err_msg in error_msgs %}
+                            <p>{{err_msg}}</p>
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+                {% endwith %}
+                    
+
+                <!--  Login Block  -->
+                <!-- <form action="/login", method="POST" class="d-flex flex-column gap-4 px-4 justify-content-around flex-wrap"> -->
+                <form action="/login", method="POST" class="d-flex flex-column gap-4 justify-content-around flex-wrap">
+                    <div class="d-flex flex-column justify-content-around flex-wrap">
+
+                        <label for="email"  class="card-text form-label">Email:</label>
+                        <input name="email" class="mb-3 form-control" type="email" id="email" value="" >
+    
+                        <label for="password"  class="card-text form-label">Password:</label>
+                        <input name="password" class="mb-3 form-control" type="password" id="password" value="" >
+    
+                        <div class="d-flex mt-3">
+                            <button type="submit" class="btn btn-success justify-content-center px-4">Login</button>
+                        </div>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
