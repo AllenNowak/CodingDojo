@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">    
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>Dojo Survey Results</title>
+</head>
+<body>
+    <div class="container bg-dark text-light w-75">
+        <!-- Form Content -->
+        <h1 class="text-xl-start font-weight-bold mb-3" style="color:orange">Dojo Survey</h1>
+        <!-- <img class="header-logo" alt="Orange Dojo Logo" src="{{ url_for('static', filename='img/dojo_orange.png') }}"> -->
+
+            <div class="container">
+
+                <p>Name: {{session.name}}</p>
+                <p>Location: {{session.location}}</p>
+                <p>Preferred Language: {{session.language}}</p>
+                <p>Schedule: {{session.pace}}</p>
+                <p>Completed Stacks:</p>
+                <ul>
+                    {% for stack in ['webfun', 'python', 'mern','java','c#'] %}
+                    {% if stack in session and session[stack] != '' %}
+                    <li>{{session[stack]}}</li>
+                    {% endif %}
+                    {% endfor %}
+                </ul>
+                <p>Comments: {{session.comments}}</p>
+            </div>
+            <a class="btn btn-primary font-weight-bold text-white" href="/destroy_session" role="button">Go Back</a>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script> 
+</body>
+</html>
+
