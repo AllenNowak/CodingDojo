@@ -30,7 +30,7 @@ class Dojo:
         query = f"""
                     SELECT * 
                     FROM {TABLE}
-                    JOIN ninjas
+                    LEFT JOIN ninjas
                     ON {TABLE}.id = ninjas.dojo_id
                     WHERE {TABLE}.id = %(id)s
                 ;"""
@@ -45,7 +45,9 @@ class Dojo:
 
         ninja_list = []
         for one_row in rows_from_db:
-            if one_row == None:
+            # Referencing the key []'ninjas.id'] == None
+            # Was the trick to NOT displaying None None None for the columns on the Show Dojo page
+            if one_row['ninjas.id'] == None:
                 return dojo
              
             ninja_dict = {

@@ -31,7 +31,7 @@ class Recipe:
         print(data)
         print('rg in data?: ', data['radio_group'])
         print('rg is on? ', (data['radio_group'] == 'on'))
-        if('radio_group' in data and data['radio_group'] == 'on'):
+        if('radio_group' in data and data['radio_group'] == 'True'):
             sub30 = True
             print("found bool to be true")
         else:
@@ -53,13 +53,19 @@ class Recipe:
         ;"""
         results = connectToMySQL(DB).query_db(query)
  
+        print(results)
+
         if not results or len(results) == 0 :
             return None
-        
+        recipes = []
+        for row in results:
+            one_recipe = cls(row)
+            one_recipe.chef = row['chef']
+            recipes.append (one_recipe)
         # For each row in results, build a recipe instance and tack on it's chef's name as done in get_by_id
         # return the list of results
 
-        return results
+        return recipes
 
     @classmethod
     def get_by_id(cls, data):

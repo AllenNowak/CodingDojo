@@ -17,8 +17,8 @@
             <div class="container card bg-dark text-light w-50 gap-2" style="padding:2.7rem;">
                 <h2 class="bg-dark text-primary text-lg-start">Register</h2>
 
-                {# <!-- {% with messages = get_flashed_messages(category_filter=['first_name', 'last_name', 'email', 'password', 'confirm_pass']) %} --> #}
-                {% with messages = get_flashed_messages() %}
+                {% with messages = get_flashed_messages(category_filter=['first_name', 'last_name', 'email', 'password', 'confirm_pass']) %}
+                {# {% with messages = get_flashed_messages() %} #}
                     {% if messages %}
                         <div class="form-control border-2 border-danger bg-danger-subtle text-danger mb-2">
                             {% for message in messages %}

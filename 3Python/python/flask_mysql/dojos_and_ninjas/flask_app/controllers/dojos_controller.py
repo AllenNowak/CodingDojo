@@ -22,7 +22,6 @@ def show_ninjas_in_one_dojo(id):
     #     'updated_at': dojo.updated_at,
     #     'ninjas' : dojo.ninjas
     # }
-    # return render_template("show_dojo.html", dojo=data)
     return render_template("show_dojo.html", dojo = dojo)
 
 @app.route('/add_dojo', methods=['post'])
@@ -30,7 +29,5 @@ def add_dojo():
     print('\n\n\n\n------------------ Request Form:')
     print(request.form)
     Dojo.create(request.form)
-    # name = request.form['name']
-    # Dojo.create(name)
 
     return redirect("/dojos")
