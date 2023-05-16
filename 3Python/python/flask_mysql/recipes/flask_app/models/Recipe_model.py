@@ -168,7 +168,51 @@ class Recipe:
 # ----------------------------------------------------  Validate
     @staticmethod
     def validate(data):
-        # TODO: Implement validation
-        return True
+        is_valid = True
+        """
+            Fields: user_id, name, description, instructions, date_cooked, under_30
+        """
+        print('\n\n\n\n-----------------> valdate(data): \n', data)
+        # -------------- User must be logged in --------------
+        # ----------------- Required Fields  -----------------  
+        # All fields required
+        # ---------------  Minimum len Fields ----------------
+        # Name, description & instructions must be >= len 3
+        # --------------  Name  --------------  
+        if len( data['name'] ) < 1:
+            flash( 'Recipe name is required', 'name')
+            is_valid = False
+        elif len( data['name'] ) < 3:
+            flash( 'Recipe name must be at least 3 characters long', 'name')
+            is_valid = False
+
+        if len( data['description'] ) < 1:
+            flash( 'Recipe description is required', 'description')
+            is_valid = False
+        elif len( data['description'] ) < 3:
+            flash( 'Recipe description must be at least 3 characters long', 'description')
+            is_valid = False
+
+        if len( data['instructions'] ) < 1:
+            flash( 'Recipe instructions are required', 'instructions')
+            is_valid = False
+        elif len( data['instructions'] ) < 3:
+            flash( 'Recipe instructions must be at least 3 characters long', 'instructions')
+            is_valid = False
+        
+        # ----------------  Require Date -------------------
+        if 'date_cooked' not in data:
+            flash( 'Date recipe was made is required', 'date_cooked')
+            is_valid = False
+        elif len( data['date_cooked'] ) < 1:
+            flash( 'Date recipe was cooked is required', 'date_cooked')
+            is_valid = False
+        
+        # ----------------  Require Under30 ----------------
+        if 'under_30' not in data:
+            flash( 'Preparation time is required', 'under_30')
+            is_valid = False
+
+        return is_valid
 
 

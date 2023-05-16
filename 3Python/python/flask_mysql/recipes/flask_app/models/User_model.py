@@ -11,13 +11,10 @@ import re
 ALPHAONLY = re.compile(r"^[a-zA-Z]+$")
 ALPHANUMERIC = re.compile(r"^[a-zA-Z0-9]+$")
 # Attribution: https://uibakery.io/regex-library/email-regex-python
-ISVALIDEMAIL1 = re.compile(r"^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$" )
-# The more complex version was balking at some simple fake emails, so ...
 ISVALIDEMAIL = re.compile(r"^\S+@\S+\.\S+$")
 # Password regex Based upon
 # Attribution: https://stackoverflow.com/questions/46582497/python-regex-for-password-validation
 # Attribution: https://www.geeksforgeeks.org/password-validation-in-python/
-# Add any special characters as your wish I used only #@$
 ISVALIDPASSWORD = re.compile(r"^(?=.*[\d])(?=.*[a-z])(?=.*[A-Z])[A-Za-z\d]{8,20}$")
 
 class User:
@@ -67,11 +64,12 @@ class User:
         user = results[0]
         return cls(user)
 
-    # TODO: Implement helper function to modularize simple queries 
+    # TODO: Maybe implement helper function to modularize simple queries 
+
     @classmethod
     def get_by_field_name(cls, data):
         if data.keys | len > 1:
-            return 'I need to raise an exception or handle the multi-key select'
+            return 'I need to raise an exception or handle multi-key select'
         for i in data:
             col = i
             val = data[i]
@@ -88,6 +86,7 @@ class User:
         print(f'Found user: {already_registered_user}')
         print(f'From request form data: {data}')
         is_valid = True
+
         # --------------  Required Fields  --------------  
         # This is here w/ the intention of possibly building out helper methods
         # Build a dict of Validation Rules 
@@ -164,10 +163,10 @@ class User:
             # flash("Passwords must be identical", "confirm_pass") # Desired IFF providing error feedback paired to the specific input?
             is_valid = False
 
-        # # --------------  Ninja Bonus: Password  --------------  
-        # if not ISVALIDPASSWORD.match(data['password']):
-        #     flash("Password requires at least one lowercase & uppercase letter & a digit")
-        #     is_valid = False
+        # --------------  Ninja Bonus: Password  --------------  
+        if not ISVALIDPASSWORD.match(data['password']):
+            flash("Password requires at least one lowercase & uppercase letter & a digit", "password")
+            is_valid = False
 
         return is_valid
 

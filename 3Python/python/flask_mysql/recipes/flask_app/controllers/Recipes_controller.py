@@ -46,7 +46,7 @@ def create_recipe():
     #validate or redirect
     if not Recipe.validate(data):
         print ('\n\n\nValidation failed')
-        return redirect('/')
+        return redirect('/new')
     
     r_id = Recipe.save(data)
     print('New recipe id: ', r_id)
@@ -66,45 +66,45 @@ def create_recipe():
 
     return redirect('/success')
 
-def register():
-    print('\n\n\n------------------------ Registration ------------------------ ')
-    print(request.form)
-    # ---------- Validate the form
-    if not User.validate_registration(request.form):
-        print ('\n\n\nValidation failed')
-        return redirect('/')
+# def register():
+#     # print('\n\n\n------------------------ Registration ------------------------ ')
+#     # print(request.form)
+#     # ---------- Validate the form
+#     if not User.validate_registration(request.form):
+#         # print ('\n\n\nValidation failed')
+#         return redirect('/')
 
-    # else hash the password & save the info
-    hashed_pw = bcrypt.generate_password_hash(request.form['password'])
-    print('\n\n\n-------------------- hashed pw: ', hashed_pw)
+#     # else hash the password & save the info
+#     hashed_pw = bcrypt.generate_password_hash(request.form['password'])
+#     # print('\n\n\n-------------------- hashed pw: ', hashed_pw)
 
-    data = {
-        'first_name' : request.form['first_name'],
-        'last_name' : request.form['last_name'],
-        'email' : request.form['email'],
-        'password' : hashed_pw
+#     data = {
+#         'first_name' : request.form['first_name'],
+#         'last_name' : request.form['last_name'],
+#         'email' : request.form['email'],
+#         'password' : hashed_pw
 
-    }
-    user_id = User.save(data)
-    session['user_id'] = user_id
-    session['logged_in'] = True
-    session['first_name'] = request.form['first_name']
-    print(f"At Regis: f_n: {session['first_name']}, r.f: {request.form['first_name']}] ")
+#     }
+#     user_id = User.save(data)
+#     session['user_id'] = user_id
+#     session['logged_in'] = True
+#     session['first_name'] = request.form['first_name']
+#     # print(f"At Regis: f_n: {session['first_name']}, r.f: {request.form['first_name']}] ")
 
-    return redirect('/success')
+#     return redirect('/success')
 
 def getFormValues(form, id):
-    print("\n\n\n")
-    print("------------> Session Info ", session)
-    print("------------> Form ", form)
-    print("\n\n\n")
+    # print("\n\n\n")
+    # print("------------> Session Info ", session)
+    # print("------------> Form ", form)
+    # print("\n\n\n")
     
     uid = session['user_id']
     data = {
         'user_id': uid,
         **form
     }
-    if( id ):
+    if( id ):           # Recipe id
         data['id'] = id
     
     return data
@@ -142,14 +142,12 @@ def update_recipe(id):
     if 'logged_in' not in session:
         return redirect('/')
 
-    #build dictionary from Post
     data = getFormValues(request.form, id)
-
 
     #validate or redirect
     if not Recipe.validate(data):
         print ('\n\n\nValidation failed')
-        return redirect('/')
+        return redirect(f'/edit/{id}')
     
     Recipe.update(data)
     

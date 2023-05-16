@@ -10,6 +10,8 @@
 </head>
 <body class="bg-dark text-light">
     <div class="container card d-flex mx-auto my-3 p-3 gap-3">
+
+        <!-- Header Section -->
         <div id="header" class="container d-flex my-2 gap-3 justify-content-between">
             <div class="col-8">
                 <h2>Edit Recipe!</h2>
@@ -19,6 +21,20 @@
                 <a href="/logout">logout</a>
             </div>
         </div>
+
+        <!-- Validation Alerts -->
+        {% with messages = get_flashed_messages() %}
+        {# {% with messages = get_flashed_messages() %} #}
+            {% if messages %}
+                <div class="form-control border-2 border-danger bg-danger-subtle text-danger mb-2">
+                    {% for message in messages %}
+                        <p>{{message}}</p>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endwith %}
+
+        <!-- Recipe Details  -->
         <form action="/update/{{recipe.id}}", method="Post" class="container d-flex flex-column gap-3">
             <section id="recipe_deets" class="container card-body d-flex bg-dark text-light mx-auto p-4 gap-3">
                 <div class="row">
@@ -46,8 +62,6 @@
                         <label for="yes">Yes</label>
                         <input type="radio" name="under_30" id="no" value="False" {% if recipe.under_30 == False %}checked{% endif %}>
                         <label for="no">No</label>
-
-
                     </div>
                 </div>
             </section>
