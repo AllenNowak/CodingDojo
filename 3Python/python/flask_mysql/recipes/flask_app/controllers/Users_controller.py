@@ -13,16 +13,15 @@ def index():
 
 @app.route('/register', methods=['POST'])
 def register():
-    print('\n\n\n------------------------ Registration ------------------------ ')
-    print(request.form)
+    # print('\n\n\n------------------------ Registration ------------------------ ')
+    # print(request.form)
     # ---------- Validate the form
     if not User.validate_registration(request.form):
-        print ('\n\n\nValidation failed')
+        # print ('\n\n\nValidation failed')
         return redirect('/')
 
-    # else hash the password & save the info
     hashed_pw = bcrypt.generate_password_hash(request.form['password'])
-    print('\n\n\n-------------------- hashed pw: ', hashed_pw)
+    # print('\n\n\n-------------------- hashed pw: ', hashed_pw)
 
     data = {
         'first_name' : request.form['first_name'],
@@ -35,14 +34,12 @@ def register():
     session['user_id'] = user_id
     session['logged_in'] = True
     session['first_name'] = request.form['first_name']
-    print(f"At Regis: f_n: {session['first_name']}, r.f: {request.form['first_name']}] ")
+    # print(f"At Regis: f_n: {session['first_name']}, r.f: {request.form['first_name']}] ")
 
     return redirect('/success')
 
 @app.route('/login', methods=['POST'])
 def login():
-    # Is the user in the DB?
-    # I also need to sanitize this input before executing the query
     found_in_db = User.get_by_email( { 'email': request.form['email']} )
 
     if not found_in_db:
@@ -66,4 +63,3 @@ def login():
 def logout():
     session.clear()
     return redirect('/')
-

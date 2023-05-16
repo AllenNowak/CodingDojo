@@ -28,15 +28,17 @@ class Recipe:
             ( %(name)s, %(description)s, %(instructions)s, %(date_cooked)s, %(under_30)s, %(user_id)s );
             ;"""
         
-        print(data)
-        print('rg in data?: ', data['under_30'])
-        print('rg is on? ', (data['under_30'] == 'on'))
+        # print(data)
+        # print('rg in data?: ', data['under_30'])
+        # print('rg is on? ', (data['under_30'] == 'on'))
+
+        # This conditional is long enough that it's better to use a full if/else rather than a ternary
         if('under_30' in data and data['under_30'] == 'True'):
             sub30 = True
-            print("found bool to be true")
+            # print("found bool to be true")
         else:
             sub30 = False
-            print("bool check failed")
+            # print("bool check failed")
         # sub30 = True if ('under_30' in data and data['under_30'] == 'on') else False
 
         data['under_30'] = sub30
