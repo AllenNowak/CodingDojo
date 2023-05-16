@@ -29,19 +29,78 @@ class Recipe:
             ;"""
         
         print(data)
-        print('rg in data?: ', data['radio_group'])
-        print('rg is on? ', (data['radio_group'] == 'on'))
-        if('radio_group' in data and data['radio_group'] == 'True'):
+        print('rg in data?: ', data['under_30'])
+        print('rg is on? ', (data['under_30'] == 'on'))
+        if('under_30' in data and data['under_30'] == 'True'):
             sub30 = True
             print("found bool to be true")
         else:
             sub30 = False
             print("bool check failed")
-        # sub30 = True if ('radio_group' in data and data['radio_group'] == 'on') else False
+        # sub30 = True if ('under_30' in data and data['under_30'] == 'on') else False
 
         data['under_30'] = sub30
 
         return connectToMySQL(DB).query_db(query, data)
+    
+# ----------------------------------------------------  Update
+    @classmethod
+    def update(cls, data):
+        if('under_30' in data and data['under_30'] == 'True'):
+            sub30 = True
+        else:
+            sub30 = False
+
+        data['under_30'] = sub30
+
+        query = f"""
+                UPDATE {TABLE} 
+                SET name = %(name)s, 
+                    description = %(description)s,
+                    instructions = %(instructions)s,
+                    date_cooked = %(date_cooked)s,
+                    under_30 = %(under_30)s
+                WHERE id = %(id)s
+            ;"""
+        
+        # data['under_30'] = sub30
+        
+        return connectToMySQL(DB).query_db(query, data)
+    
+    
+
+
+
+
+
+    # @classmethod
+    # def save(cls, data):
+    #     query = f"""
+    #         INSERT INTO {TABLE} 
+    #         (name, description, instructions, date_cooked, under_30, user_id)
+    #         VALUES 
+    #         ( %(name)s, %(description)s, %(instructions)s, %(date_cooked)s, %(under_30)s, %(user_id)s );
+    #         ;"""
+        
+    #     print(data)
+    #     print('rg in data?: ', data['under_30'])
+    #     print('rg is on? ', (data['under_30'] == 'on'))
+    #     if('under_30' in data and data['under_30'] == 'True'):
+    #         sub30 = True
+    #         print("found bool to be true")
+    #     else:
+    #         sub30 = False
+    #         print("bool check failed")
+    #     # sub30 = True if ('under_30' in data and data['under_30'] == 'on') else False
+
+    #     data['under_30'] = sub30
+
+    #     return connectToMySQL(DB).query_db(query, data)
+    
+    
+
+
+
 
 # ----------------------------------------------------  Read
 # Read by email
@@ -99,16 +158,12 @@ class Recipe:
         return cls(row[0])
     
 
-
-
-
-
-# ----------------------------------------------------  Update
-
-
 # ----------------------------------------------------  Delete
 
-
+    @classmethod
+    def delete(cls,data):
+        query = f"""DELETE FROM {TABLE} WHERE id = %(id)s;"""
+        return connectToMySQL(DB).query_db(query, data)
 
 # ----------------------------------------------------  Validate
     @staticmethod

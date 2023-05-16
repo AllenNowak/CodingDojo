@@ -41,7 +41,7 @@ def create_recipe():
         return redirect('/')
 
     #build dictionary from Post
-    data = getFormValues(request.form)
+    data = getFormValues(request.form, None)
 
     #validate or redirect
     if not Recipe.validate(data):
@@ -93,7 +93,7 @@ def register():
 
     return redirect('/success')
 
-def getFormValues(form):
+def getFormValues(form, id):
     print("\n\n\n")
     print("------------> Session Info ", session)
     print("------------> Form ", form)
@@ -104,6 +104,8 @@ def getFormValues(form):
         'user_id': uid,
         **form
     }
+    if( id ):
+        data['id'] = id
     
     return data
 
@@ -135,9 +137,32 @@ def edit_recipe(id):
 
     return render_template('edit.html', recipe = recipe )
 
+@app.route('/update/<int:id>', methods=['POST'])
+def update_recipe(id):
+    if 'logged_in' not in session:
+        return redirect('/')
+
+    #build dictionary from Post
+    data = getFormValues(request.form, id)
+
+
+    #validate or redirect
+    if not Recipe.validate(data):
+        print ('\n\n\nValidation failed')
+        return redirect('/')
+    
+    Recipe.update(data)
+    
+    return redirect('/success')
+
+
 @app.route('/delete/<int:id>')
 def delete_recipe(id):
-    pass
+    if 'logged_in' not in session:
+        return redirect('/')
+
+    Recipe.delete({'id':id})    
+    return redirect('/success')
 
 
 
