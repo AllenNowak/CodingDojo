@@ -6,13 +6,11 @@ from flask_bcrypt import Bcrypt
 bcrypt = Bcrypt(app)
 DEBUG = True
 
-MAIN_PAGE = '/wall'
+MAIN_PAGE = '/dashboard'
 
 @app.route('/')
-@app.route('/index.html')
 def index():
     if 'logged_in' in session:
-        print('U r logged in fool')
         return redirect(MAIN_PAGE)
 
     return render_template("index.html")
