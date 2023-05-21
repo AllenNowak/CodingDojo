@@ -25,17 +25,17 @@ def home():
 
 @app.route('/send', methods=['POST'])
 def new_message():
-    print('in send')
     if 'logged_in' not in session:
         return redirect('/')
-    print('past session check')
     
     addressee = request.form['sendTo']
-    print('addressed to: ', addressee)
     data = getFormValues(request.form, addressee)
-    print('sending data:', data)
+
+    if not Message.validate(data):
+        return redirect('/wall')
+
+
     r = Message.save(data)
-    print('After saving message, r=', r)
     return redirect('/wall')
 
 
@@ -136,6 +136,7 @@ def delete(id):
         return redirect('/')
     
     # Need to protect against hacker delete attempts
+    user_id = session['user_id']
 
-    Message.delete({'id':id})    
+    Message.delete({'id':id, 'user_id':user_id})
     return redirect('/wall')

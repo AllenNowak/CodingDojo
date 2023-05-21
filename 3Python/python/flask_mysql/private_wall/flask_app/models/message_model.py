@@ -29,14 +29,11 @@ class Message:
             ( %(sender_id)s,  %(receiver_id)s,  %(message)s);
             ;"""
         
-        print('Saving data: ', data)
-
         return connectToMySQL(DB).query_db(query, data)
 # ----------------------------------------------------  Read
     @classmethod
     # Current user's outbox length
     def get_sent_message_count_for_user(cls, data):
-        # print('Data is : ', data)
         query = f"""
             SELECT COUNT(*) as count FROM {TABLE} t
             WHERE t.sender_id = %(id)s
@@ -48,7 +45,6 @@ class Message:
     @classmethod
     # Current user's inbox
     def get_all_by_recipient_id(cls, data):
-        print('Data is : ', data)
         query = f"""
             SELECT t.*, receiver.*, sender.* FROM {TABLE} t
             JOIN users AS receiver 
@@ -61,12 +57,12 @@ class Message:
 
         results = connectToMySQL(DB).query_db(query, data)
  
-        print(results)
+        # print(results)
+        messages = []
 
         if not results or len(results) == 0 :
-            return None
+            return messages
         
-        messages = []
         for row in results:
             instance = cls(row)
             instance.sent_how_long_ago = Message.pretty_date(row['created_at'])
@@ -84,7 +80,7 @@ class Message:
             }
             receiver = user_model.User(rcvrData)
             instance.receiver = receiver
-            print('Receiver -----------------> ', receiver)
+            # print('Receiver -----------------> ', receiver)
 
             senderData = {
                 'id' : row['sender.id'],
@@ -98,7 +94,7 @@ class Message:
             }
             sender = user_model.User(senderData)
             instance.sender = sender
-            print('Sender   -----------------> ', sender)
+            # print('Sender   -----------------> ', sender)
             
             messages.append(instance)
 
@@ -112,46 +108,24 @@ class Message:
 
     @classmethod
     def delete(cls,data):
-        query = f"""DELETE FROM {TABLE} WHERE id = %(id)s;"""
+        query = f"""DELETE FROM {TABLE} WHERE id = %(id)s AND receiver_id = %(user_id)s;"""
         return connectToMySQL(DB).query_db(query, data)
 
 # ----------------------------------------------------  Validate
     @staticmethod
     def validate(data):
         is_valid = True
-        """
-            Req'd Fields: location, description, date, how_many, user_id
-        """
-        print('\n\n\n\n-----------------> valdate(data): \n', data)
-        # # -------------- User must be logged in --------------
-        # # ----------------- Required Fields  -----------------  
-        # # All fields required
-        # # ---------------  Minimum len Fields ----------------
-        # # Name, description & instructions must be >= len 3
-        # # --------------  Name  --------------  
-        # if len( data['location'] ) < 1:
-        #     flash( 'Location is required', 'location')
-        #     is_valid = False
+        # print('\n\n\n\n ----------------------------------- Validating')
+        # print('Validating data: ', data)
 
-        # if len( data['description'] ) < 1:
-        #     flash( 'Description is required', 'description')
-        #     is_valid = False
-
-        # # ----------------  How Many  -------------------
-        # if 'how_many' not in data:
-        #     flash( 'Number of Sasquatches is required', 'how_many')
-        #     is_valid = False
-        # elif len( data['how_many'] ) < 1:
-        #     flash( 'Number of Sasquatches is required', 'how_many')
-        #     is_valid = False
-        # # ----------------  Require Date -------------------
-        # if 'date' not in data:
-        #     flash( 'Date sighting was made is required', 'date')
-        #     is_valid = False
-        # elif len( data['date'] ) < 1:
-        #     flash( 'Date sighting was made is required', 'date')
-        #     is_valid = False
-        
+        addressee = str(data['receiver_id'])
+        if len( data['message'] ) < 1:
+            flash( 'Message is required', addressee)
+            is_valid = False
+        elif len( data['message'] ) < 5:
+            flash( 'Message must be 5 characters or more', addressee)
+            is_valid = False
+        # print('isValid = ', is_valid)
         return is_valid
 
 

@@ -17,6 +17,7 @@
         </div>
     </header>
     <main class="container d-flex">
+        <!--  INBOX  -->
         <div class="left border-end border-secondary d-flex flex-column col-6">
             <h4>
                 <span class="border-bottom border-secondary">
@@ -37,6 +38,8 @@
                 </div>
             {% endfor %}
         </div>
+
+        <!-- OUTBOX -->
         <div class="right d-flex flex-column col-6 ps-4">
             <h4>
                 <span class="border-bottom border-secondary">Send Messages</span>
@@ -49,6 +52,27 @@
                         <textarea class="col-6" name="msg_to_{{ruser.id}}" cols="30" rows="2" id="msg_to_{{ruser.id}}"></textarea>
                         <button class="col-3 btn btn-sm btn-primary align-self-end" type="submit" name="sendTo" value="{{ruser.id}}">Send</button>
                     </div>
+                    <!-- Validation Alerts -->
+                    {% with messages = get_flashed_messages(with_categories=true) %}
+                    {# {% with messages = get_flashed_messages() %} #}
+                        {% for category, message in messages  %}
+                            {% if category ==  (ruser.id | string) %}
+                                <div class="form-control border-2 border-danger bg-danger-subtle text-danger mb-2 fs-6">
+                                    <p>{{message}}</p>
+                                </div>
+
+                            {% endif %}
+                        {% endfor %}
+                        {#
+                        {% if messages %}
+                            <div class="form-control border-2 border-danger bg-danger-subtle text-danger mb-2 fs-6">
+                                {% for message in messages %}
+                                    <p>{{message}}</p>
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+                        #}
+                    {% endwith %}
                 {% endfor %}
             </form>
         </div>

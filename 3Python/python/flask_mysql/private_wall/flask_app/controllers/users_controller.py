@@ -12,7 +12,6 @@ MAIN_PAGE = '/wall'
 @app.route('/index.html')
 def index():
     if 'logged_in' in session:
-        print('U r logged in fool')
         return redirect(MAIN_PAGE)
 
     return render_template("index.html")
@@ -57,7 +56,6 @@ def login():
         return redirect('/')
 
     # Since passwords matched, we can set the user's session info
-    print('At login')
     session['logged_in'] = True
     session['user_id'] = found_in_db.id
 

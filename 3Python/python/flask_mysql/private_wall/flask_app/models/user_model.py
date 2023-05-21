@@ -92,8 +92,6 @@ class User:
     @staticmethod
     def validate_registration(data):
         already_registered_user = User.get_by_email({'email' : data['email']})
-        print(f'Found user: {already_registered_user}')
-        print(f'From request form data: {data}')
         is_valid = True
 
         # --------------  First Name  --------------  data
@@ -128,7 +126,6 @@ class User:
             is_valid = False
         # --------------  Email not previously registered  --------------  
         else:
-            print('Verifying email conflicts')
             is_conflicted = User.get_by_email({'email' : data['email']})
             if is_conflicted:
                 flash("Invalid email address: Address already registered.", "email")
